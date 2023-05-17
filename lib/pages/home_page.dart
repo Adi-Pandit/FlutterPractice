@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_catalog/models/catalog.dart';
-import 'package:flutter_catalog/pages/home_widgets/catalog_header.dart';
-import 'package:flutter_catalog/pages/home_widgets/catalog_list.dart';
+import 'package:flutter_catalog/widgets/home_widgets/catalog_header.dart';
+import 'package:flutter_catalog/widgets/home_widgets/catalog_list.dart';
 import 'package:flutter_catalog/widgets/themes.dart';
 import 'dart:convert';
 import 'package:velocity_x/velocity_x.dart';
@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
             children: [
               const CatalogHeader(),
               if (CatalogModel.items.isNotEmpty)
-                const CatalogList().expand()
+                const CatalogList().py16().expand()
               else
                 const CircularProgressIndicator().centered().expand(),
             ],
