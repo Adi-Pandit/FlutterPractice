@@ -31,8 +31,8 @@ class HomeDetailPage extends StatelessWidget {
                   const StadiumBorder(),
                 ),
               ),
-              child: "Buy".text.xl.make(),
-            ).wh(100, 50),
+              child: "Add to cart".text.xl.make(),
+            ).wh(140, 50),
           ],
         ).p32(),
       ),
@@ -64,6 +64,11 @@ class HomeDetailPage extends StatelessWidget {
                           .textStyle(context.captionStyle)
                           .make(),
                       10.heightBox,
+                      "Et invidunt lorem dolor duo ea diam, amet dolor eos ipsum vero invidunt. At sanctus accusam amet sed, sit stet voluptua elitr et sit sea. Amet sed ipsum accusam sea. Ipsum eos kasd takimata ut sed et justo dolor justo.."
+                          .text
+                          .textStyle(context.captionStyle)
+                          .make()
+                          .p16(),
                     ],
                   ).py64(),
                 ),
