@@ -8,7 +8,9 @@ class MyTheme {
         cardColor: Colors.white,
         canvasColor: creamColor,
         colorScheme: ColorScheme.fromSwatch().copyWith(
-            secondary: darkBluishColor, primary: const Color(0xffff000f)),
+          secondary: darkBluishColor,
+          primary: const Color(0xffff000f),
+        ),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
           backgroundColor: Color(0xff403b58),
           foregroundColor: Colors.white,
