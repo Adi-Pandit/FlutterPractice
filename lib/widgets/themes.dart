@@ -41,9 +41,10 @@ class MyTheme {
         cardColor: Colors.black,
         canvasColor: darkCreamColor,
         colorScheme: ColorScheme.fromSwatch().copyWith(
-            secondary: Colors.white,
-            brightness: Brightness.dark,
-            primary: Colors.red),
+          secondary: Colors.white,
+          brightness: Brightness.dark,
+          primary: Colors.red,
+        ),
         floatingActionButtonTheme: const FloatingActionButtonThemeData(
           backgroundColor: Vx.indigo500,
           foregroundColor: Colors.white,
