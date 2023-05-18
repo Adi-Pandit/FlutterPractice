@@ -5,7 +5,6 @@ import 'package:flutter_catalog/models/catalog.dart';
 import 'package:flutter_catalog/utils/routes.dart';
 import 'package:flutter_catalog/widgets/home_widgets/catalog_header.dart';
 import 'package:flutter_catalog/widgets/home_widgets/catalog_list.dart';
-import 'package:flutter_catalog/widgets/themes.dart';
 import 'dart:convert';
 import 'package:velocity_x/velocity_x.dart';
 
@@ -41,15 +40,17 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MyTheme.creamColor,
+      backgroundColor: context.canvasColor,
       floatingActionButton: FloatingActionButton(
         onPressed: () => Navigator.pushNamed(
           context,
           MyRoutes.cartRoute,
         ),
-        backgroundColor: MyTheme.darkBluishColor,
+        backgroundColor:
+            context.theme.floatingActionButtonTheme.backgroundColor,
         child: const Icon(
           CupertinoIcons.cart,
+          color: Colors.white,
         ),
       ),
       body: SafeArea(
@@ -59,7 +60,7 @@ class _HomePageState extends State<HomePage> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const CatalogHeader(),
-              if (CatalogModel.items.isNotEmpty)
+              if (CatalogModel.items != null && CatalogModel.items!.isNotEmpty)
                 const CatalogList().py16().expand()
               else
                 const CircularProgressIndicator().centered().expand(),

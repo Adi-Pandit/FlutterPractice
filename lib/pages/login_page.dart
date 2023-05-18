@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_catalog/utils/routes.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -31,7 +32,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.white,
+      color: context.canvasColor,
       child: SingleChildScrollView(
         child: Form(
           key: _formKey,
@@ -62,9 +63,21 @@ class _LoginPageState extends State<LoginPage> {
                 child: Column(
                   children: [
                     TextFormField(
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         hintText: "Enter username",
                         labelText: "Username",
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: context.theme.inputDecorationTheme
+                                .focusedBorder!.borderSide.color,
+                          ),
+                        ),
+                        floatingLabelStyle: const TextStyle(
+                          color: Colors.grey,
+                        ),
+                        hintStyle: const TextStyle(
+                          color: Colors.grey,
+                        ),
                       ),
                       validator: (value) {
                         if (value!.isEmpty) {
@@ -72,6 +85,7 @@ class _LoginPageState extends State<LoginPage> {
                         }
                         return null;
                       },
+                      cursorColor: Colors.white,
                       onChanged: (value) {
                         setState(() {
                           name = value;
@@ -80,10 +94,23 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     TextFormField(
                       obscureText: true,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         hintText: "Enter password",
                         labelText: "Password",
+                        focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                            color: context.theme.inputDecorationTheme
+                                .focusedBorder!.borderSide.color,
+                          ),
+                        ),
+                        floatingLabelStyle: const TextStyle(
+                          color: Colors.grey,
+                        ),
+                        hintStyle: const TextStyle(
+                          color: Colors.grey,
+                        ),
                       ),
+                      cursorColor: context.theme.textSelectionTheme.cursorColor,
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "Username cannot be empty";
@@ -100,7 +127,8 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(
                         changeButton ? 50 : 8,
                       ),
-                      color: Colors.deepPurple,
+                      color: context
+                          .theme.floatingActionButtonTheme.backgroundColor,
                       child: InkWell(
                         onTap: () => moveToHome(context),
                         child: AnimatedContainer(
